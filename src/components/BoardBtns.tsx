@@ -10,7 +10,7 @@ interface Props {
 export default function BoardBtns({ M, N, setM, setN }: Props) {
   const options = (num: number) => {
     const mat = [];
-    for (let index = 1; index < num; index++) {
+    for (let index = 2; index < num; index++) {
       mat.push(
         <MenuItem value={index} key={index}>
           {index}
@@ -46,7 +46,12 @@ export default function BoardBtns({ M, N, setM, setN }: Props) {
           // color="primary"
           style={{ color: "#ccc" }}
           onChange={(e: React.ChangeEvent<{ value: unknown }>) => {
-            setN(Number(e.target.value));
+              const num =Number(e.target.value)
+            setN(num);
+            if(M>num/2){
+                setM(Math.max(Math.floor(num/2),2))
+            }
+
           }}
         >
           {options(20)}
@@ -68,7 +73,7 @@ export default function BoardBtns({ M, N, setM, setN }: Props) {
             setM(Number(e.target.value));
           }}
         >
-          {options(10)}
+          {options(N/2+1)}
         </Select>
       </FormControl>
     </div>
