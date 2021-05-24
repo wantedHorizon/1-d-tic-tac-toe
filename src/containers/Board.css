@@ -1,0 +1,19 @@
+.board {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.board .row {
+
+    height: 15vh;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 80%;
+    border: 1px solid black;
+}
